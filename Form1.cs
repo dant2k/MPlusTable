@@ -191,6 +191,10 @@ namespace MPlusTable
                         // Parse the value and round.
                         v = Math.Round(v, 2);
                         Value = v.ToString();
+                        if (Value.IndexOf('.') == Value.Length - 2)
+                            Value = Value + "0"; // make sure decimals have a trailing 0.
+                        else if (Value.IndexOf('.') == -1)
+                            Value = Value + ".00";
                     }
 
                     // Don't asterisk anything over 1
